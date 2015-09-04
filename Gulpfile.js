@@ -74,7 +74,7 @@ gulp.task('connect', function() {
 	connect.server({
     root: './builds/inbound',
     livereload: true,
-    port: 8001
+    port: 8003
   });
 });
 

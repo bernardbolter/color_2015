@@ -1,3 +1,3 @@
-# Basic starter theme for Company Smoothism development
+# A Colorful History
 
-Designed to be the initial tmplate for websites before ReactJS is used.
+Development files for www.acolorfulhistory.com

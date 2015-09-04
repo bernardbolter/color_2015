@@ -1,7 +1,7 @@
 {
-  "name": "smoothSimple",
+  "name": "AColorfulHistory",
   "version": "0.0.0",
-  "description": "Basic starter theme for Company Smoothism development",
+  "description": "Development files for www.acolorfulhistory.com",
   "main": "index.hmtl",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
