@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="8.672px" height="4.91px" viewBox="0 0 8.672 4.91" enable-background="new 0 0 8.672 4.91" xml:space="preserve">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="612px" height="612px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
 <g>
-	<path d="M6.217,4.91H4.992l2.021-2.021H0V2.021h7.014L4.992,0h1.225l2.455,2.455L6.217,4.91z"/>
+	<g>
+		<g id="West">
+			<g>
+				<path d="M421.133,267.75H287.965l0.803-4.973l42.61-43.012c13.427-13.56,16.696-35.267,5.604-50.796
+					c-14.097-19.718-41.482-21.343-57.796-4.877L164.131,280.258c-7.134,7.172-11.131,16.906-11.131,27.1
+					c0,10.176,3.997,19.908,11.112,27.102l114.75,113.469c14.822,14.977,38.842,14.977,53.666,0
+					c14.842-14.975,14.842-39.226,0-54.182L282.17,344.25h138.962c20.923,0,37.867-16.943,37.867-37.868v-0.765
+					C459,284.714,442.036,267.75,421.133,267.75z M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306s306-136.992,306-306
+					S475.008,0,306,0z M306,535.5C179.45,535.5,76.5,432.55,76.5,306S179.45,76.5,306,76.5S535.5,179.45,535.5,306
+					S432.55,535.5,306,535.5z"/>
+			</g>
+		</g>
+	</g>
 </g>
 </svg>

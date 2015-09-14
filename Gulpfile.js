@@ -29,7 +29,10 @@ var path = {
 	  	'assets/js/*.js'
 	  	],
 	  SVG: 'assets/svg/*.svg',
-	  IMG: 'assets/img/**/*.jpg'
+	  IMG: [
+	  'assets/img/**/*.jpg',
+	  'assets/img/*.png'
+	  ]
 };
 
 gulp.task('sass-in', function() {

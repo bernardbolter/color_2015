@@ -1,3 +1,22 @@
 section.hero
 	.hero_wrap
 	include hero_title.jade
+	.hero_text
+		.hero_main Historical Photos and Acrylic on Canvas 
+		.hero_by by Bernard John Bolter IV
+		ul.nav
+			li.about_nav
+				a(href="#", alt="about")
+					svg.arrow_left
+						use(xlink:href='../svgs/defs.svg#svg-arrow') 
+					.about_nav_text.nav_text about
+			li.paintings_nav
+				a(href="#", alt="paintings") 
+					svg.arrow_down
+						use(xlink:href='../svgs/defs.svg#svg-arrow')
+					.painting_nav_text.nav_text paintings
+			li.contact.nav 
+				a(href="#", alt="contact") 
+					svg.arrow_right
+						use(xlink:href='../svgs/defs.svg#svg-arrow')
+					.contact_nav_text.nav_text contact
