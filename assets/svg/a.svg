@@ -5,10 +5,10 @@
 ]>
 <svg version="1.1"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="23px" height="40px" viewBox="0 0 23 40" enable-background="new 0 0 23 40" xml:space="preserve">
+	 x="0px" y="0px" width="28px" height="40px" viewBox="0 0 28 40" enable-background="new 0 0 28 40" xml:space="preserve">
 <defs>
 	
-		<pattern  x="-447.539" y="449.763" width="69" height="69" patternUnits="userSpaceOnUse" id="Polka_Dot_Pattern" viewBox="2.125 -70.896 69 69" overflow="visible">
+		<pattern  x="-73.769" y="449.763" width="69" height="69" patternUnits="userSpaceOnUse" id="Polka_Dot_Pattern" viewBox="2.125 -70.896 69 69" overflow="visible">
 		<g>
 			<polygon fill="none" points="71.125,-1.896 2.125,-1.896 2.125,-70.896 71.125,-70.896 			"/>
 			<polygon fill="#F7BC60" points="71.125,-1.896 2.125,-1.896 2.125,-70.896 71.125,-70.896 			"/>
@@ -948,5 +948,6 @@
 		</g>
 	</pattern>
 </defs>
-<path d="M22.5,9.99h-6.27v30H6.24v-30H0V0h22.5V9.99z"/>
+<path d="M28.008,39.99H16.992l-0.557-5.01h-4.893l-0.557,5.01H0L7.998,0H20.01L28.008,39.99z M15.645,27.48l-1.641-15l-1.641,15
+	H15.645z"/>
 </svg>

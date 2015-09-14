@@ -18,17 +18,18 @@ var gulp = require('gulp'),
 	livereload = require('gulp-livereload');
 
 var path = {
-	  JADE: './assets/templates/index.jade',
+	  JADE: 'assets/templates/*.jade',
 	  SASS: [
-		'./assets/sass/style.sass',
-		'./assets/sass/**/*.scss',
-		'./assets/sass/**/*.sass'
+		'assets/sass/style.sass',
+		'assets/sass/**/*.scss',
+		'assets/sass/**/*.sass'
 			],
 	  JS: [
-	  	'./assets/js/vendor/*.js',
-	  	'./assets/js/*.js'
+	  	'assets/js/vendor/*.js',
+	  	'assets/js/*.js'
 	  	],
-	  SVG: './assets/svg/*.svg'
+	  SVG: 'assets/svg/*.svg',
+	  IMG: 'assets/img/**/*.jpg'
 };
 
 gulp.task('sass-in', function() {
@@ -38,7 +39,7 @@ gulp.task('sass-in', function() {
 		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie8', 'ie9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(concat('style.css'))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('./builds/inbound/css'))
+		.pipe(gulp.dest('builds/inbound/css'))
 		.pipe(connect.reload());
 });
 
@@ -47,12 +48,12 @@ gulp.task('js-in', function() {
 		.pipe(sourcemaps.init())
 		.pipe(concat('bundle.js'))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('./builds/inbound/js'))
+		.pipe(gulp.dest('builds/inbound/js'))
 		.pipe(connect.reload());
 });
 
 gulp.task('jade-in', function() {
-	gulp.src(path.JADE)
+	gulp.src('assets/templates/index.jade')
 		.pipe(jade({
 			pretty: true
 			}))
@@ -66,13 +67,23 @@ gulp.task('svg-in', function() {
     	.pipe(svgmin())
     	.pipe(svgstore())
     	.pipe(rename('defs.svg'))
-    	.pipe(gulp.dest('./builds/inbound/svgs'))
+    	.pipe(gulp.dest('builds/inbound/svgs'))
     	.pipe(connect.reload());
+});
+
+gulp.task('clean-in', function() {
+	return gulp.src('builds/inbound', {read: false})
+		.pipe(clean());
+});
+
+gulp.task('copyImg', function() {
+	gulp.src(path.IMG)
+   .pipe(gulp.dest('builds/inbound/img'));
 });
 
 gulp.task('connect', function() {
 	connect.server({
-    root: './builds/inbound',
+    root: 'builds/inbound',
     livereload: true,
     port: 8003
   });
@@ -85,4 +96,4 @@ gulp.task('watch', function() {
 	gulp.watch(path.SVG), ['svg-in'];
 });
 
-gulp.task('default', ['sass-in', 'js-in', 'jade-in', 'svg-in' , 'connect', 'watch']);
+gulp.task('default', ['sass-in', 'js-in', 'jade-in', 'svg-in' , 'connect', 'copyImg', 'watch']);
