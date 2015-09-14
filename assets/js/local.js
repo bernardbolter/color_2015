@@ -17,17 +17,14 @@ $(document).ready(function() {
 });
 
 $(window).load(function() {          
-  var i = 0;
-  var images = ['sp_lg.jpg', 'sm_lg.jpg', 'hm_lg.jpg'];
-  var image = $('.hero_wrap');
-                //Change image at regular intervals
-  setInterval(function(){  
-   image.fadeOut(2000, function () {
-   image.css('background-image', 'url(../img/bw/' + images [i++] +')');
-   image.fadeIn(5000);
-   });
-   if(i == images.length)
-    i = 0;
-  }, 5000);           
- });
+  var bgImages = ['sp_lg.jpg', 'sm_lg.jpg', 'hm_lg.jpg'];
+  var bgImage = bgImages[Math.floor(Math.random() * bgImages.length)];
+  $('.hero_wrap').css('background-image', 'url(../img/bw/' + bgImage + ')');
+});
+
+$(document).ready(function() {
+  $('.about_nav').click(function() {
+    $('.about_wrap').toggleClass('about_slide');
+  });
+});
 
