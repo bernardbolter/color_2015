@@ -4,18 +4,19 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
-	sourcemaps = require('gulp-sourcemaps'),
 	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
+	sourcemaps = require('gulp-sourcemaps'),
+	browserify = require('browserify'),
+	watchify = require('watchify'),
+	reactify = require('reactify'),
+	source = require('vinyl-source-stream'),
 	jade = require('gulp-jade'),
 	svgstore = require('gulp-svgstore'),
 	svgmin = require('gulp-svgmin'),
-	imagemin = require('gulp-imagemin'),
 	rename = require('gulp-rename'),
 	clean = require('gulp-clean'),
 	watch = require('gulp-watch'),
-	connect = require('gulp-connect'),
-	livereload = require('gulp-livereload');
+	connect = require('gulp-connect')
 
 var path = {
 	  JADE: 'assets/templates/*.jade',
@@ -24,10 +25,6 @@ var path = {
 		'assets/sass/**/*.scss',
 		'assets/sass/**/*.sass'
 			],
-	  JS: [
-	  	'assets/js/vendor/*.js',
-	  	'assets/js/*.js'
-	  	],
 	  SVG: 'assets/svg/*.svg',
 	  IMG: [
 	  'assets/img/**/*.jpg',
@@ -47,12 +44,28 @@ gulp.task('sass-in', function() {
 });
 
 gulp.task('js-in', function() {
-	gulp.src(path.JS)
-		.pipe(sourcemaps.init())
-		.pipe(concat('bundle.js'))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('builds/inbound/js'))
-		.pipe(connect.reload());
+	var bundler = watchify(browserify({
+		entries: ['./assets/app/app.jsx'],
+		transform: [reactify],
+		extensions: ['.jsx'],
+		debug: true,
+		cache: {},
+		packageCache: {},
+		fullPaths: true
+	}));
+
+	function build(file) {
+		if (file) gutil.log('Recompiling ' + file);
+		return bundler
+			.bundle()
+			.on('error', gutil.log.bind(gutil, 'Browserify Error'))
+			.pipe(source('bundle.js'))
+			.pipe(sourcemaps.write())
+			.pipe(gulp.dest('./builds/inbound/js'))
+			.pipe(connect.reload());
+	};
+	build()
+	bundler.on('update', build)
 });
 
 gulp.task('jade-in', function() {
