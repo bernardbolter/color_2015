@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 var HelloWorld = React.createClass({
 	render: function(){
@@ -10,4 +11,4 @@ var HelloWorld = React.createClass({
 
 var element = React.createElement(HelloWorld);
 
-React.render(element, document.querySelector('.container'));
+ReactDOM.render(element, document.querySelector('.react'));
