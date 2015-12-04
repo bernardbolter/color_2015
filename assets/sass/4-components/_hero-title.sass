@@ -1,11 +1,10 @@
 .history_title
 	width: 100%
-	margin: 0 auto
-	padding: 10vh 0 0 0
+	margin: 5% auto 0
+	padding: 10 0 0 0
 	display: flex
 	flex-direction: column
 	align-content: center
-	list-style: none
 	display: block
 
 	.title_top
@@ -14,49 +13,76 @@
 		flex-direction: row
 		justify-content: center
 
+		+svg-height($sm-letters, 28, 40, 'a')
+
 		.a
+			+svg-responsive(28, 40, 'a')
 			svg
 				fill: $red
 
 	.title_mid
-		width: 50%
+		width: 100%
 		display: flex
 		flex-direction: row
 		justify-content: center
 		margin: 10px 0
 
-		+breakpoint(sm)
-			width: 100%
+		.letter
+			width: 20%
 
+		+svg-height($sm-letters, 38.05, 40, 'c')
+		
 		.c
+			+svg-responsive(38.05, 40, 'c')
 			svg
 				fill: $orange
 
+		+svg-height($sm-letters, 39.02, 40, 'o')
+
 		.o
+			+svg-responsive(39.02, 40, 'o')
 			svg
 				fill: $yellow
 
+		+svg-height($sm-letters, 20, 40, 'l')
+
 		.l
+			+svg-responsive(20, 40, 'l')
 			svg
 				fill: $olive
 
+		+svg-height($sm-letters, 39.02, 40, 'o')
+
 		.o2
+			+svg-responsive(39.02, 40, 'o')
 			svg
 				fill: $green
 
+		+svg-height($sm-letters, 23, 40, 'r')
+
 		.r
+			+svg-responsive(23, 40, 'r')
 			svg
 				fill: $tourquise
 
+		+svg-height($sm-letters, 20, 40, 'f')
+
 		.f
+			+svg-responsive(20, 40, 'f')
 			svg
 				fill: $cyan
 
+		+svg-height($sm-letters, 23, 40, 'u')
+
 		.u
+			+svg-responsive(23, 40, 'u')
 			svg
 				fill: $blue
 
+		+svg-height($sm-letters, 20, 40, 'l')
+
 		.l2
+			+svg-responsive(20, 40, 'l')
 			svg
 				fill: $purple
 
@@ -66,38 +92,39 @@
 		flex-direction: row
 		justify-content: center
 
+		.letter
+			width: 20%
+
 		svg
 			fill: rgba(0,0,0,0.5)
 			stroke: white
 			stroke-width: 0.5
 
 		.h
-			svg
-				width: 80px
+			+svg-responsive(23, 40, 'h')
+
 		.i
-			svg
-				width: 50px
+			+svg-responsive(15, 40, 'i')
+
 		.s
-			svg
-				width: 50px
+			+svg-responsive(15.61, 40, 's')
+
 		.t
-			svg
-				width: 70px
+			+svg-responsive(23, 40, 't')
+
 		.o3
-			svg
+			+svg-responsive(39.02, 40, 'o')
 
-		.r
-			svg
-				width: 45px
+		.r2
+			+svg-responsive(23, 40, 'r')
+
 		.y
-			svg
-				width: 65px
-		
+			+svg-responsive(27, 40, 'y')
 
-	li
-		width: 30px
-		margin: 0 3px 3px 0
+// ICON STYLING
 
 .icon
-	width: 80px
-	height: 80px
+	display: inline-block
+	position: absolute
+	top: 0
+	left: 0
