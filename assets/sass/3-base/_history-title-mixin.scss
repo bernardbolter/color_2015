@@ -27,19 +27,24 @@ $letter-namespace: '.history-title__letter';
   }
 }
 
-
 //Pass in width / height without any length unit specifier (so we don't have to do sill strip unit wackiness!), and
 //this will determine appropraite ratio for padding hack and deliver the conainter code.
-@mixin history-title-letter ($responsive-height: 1, $width: 1, $height: 1, $suffix:"", $history-color: #fff) {
+@mixin history-title-letter ($responsive-height: 1, $lg-width: 1, $width: 1, $height: 1, $suffix:"", $history-color: #fff) {
 
   //  figure out width of the letter in percentage
   $proportion: percentage($width/$height);
   $proportion-number: ($proportion/100%);
-  $responsive-width: percentage(($proportion-number * $responsive-height) * 0.001); 
+  $responsive-width: percentage(($proportion-number * $responsive-height) * 0.001);
 
   // give width to letter
   #{$letter-namespace}--#{$suffix} {
     width: $responsive-width;
+  }
+
+  @media (min-width: 800px) {
+      #{$letter-namespace}--#{$suffix} {
+      width: #{$lg-width}%;
+    }  
   } 
 
   // figure out padding of individual letter to maintain responsive proportions along with default proporties

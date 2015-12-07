@@ -1,19 +1,30 @@
 .history-title
 	width: 100%
 	margin: 5% auto 0
-	padding: 10 0 0 0
+	padding: 0 0 0 0
 	display: flex
 	flex-direction: column
 	align-content: center
-	display: block
+	z-index: 200
+
+	+breakpoint(md)
+		width: 94%
+		flex-direction: row
+		align-items: center
+		padding: 0 3%
+		margin: 1% auto 0
+
 
 	+e('top')
 		width: 100%
 		display: flex
 		flex-direction: row
 		justify-content: center
+		
+		+breakpoint(md)
+			width: 7%
 
-		+history-title-letter($sm-letters, 28, 40, 'a', $red)
+		+history-title-letter($sm-letters, 73, 28, 40, 'a', $red)
 
 	+e('mid')
 		width: 100%
@@ -22,21 +33,26 @@
 		justify-content: center
 		margin: 10px 0
 
-		+history-title-letter($sm-letters, 38.05, 40, 'c', $orange)
+		+breakpoint(md)
+			width: 49%
+			margin: 0
+			padding: 0 2%
 
-		+history-title-letter($sm-letters, 39.02, 40, 'o', $yellow)
+		+history-title-letter($sm-letters, 34, 38.05, 40, 'c', $orange)
 
-		+history-title-letter($sm-letters, 20, 40, 'l', $olive)
+		+history-title-letter($sm-letters, 34, 39.02, 40, 'o', $yellow)
 
-		+history-title-letter($sm-letters, 39.02, 40, 'o2', $green)
+		+history-title-letter($sm-letters, 17, 20, 40, 'l', $olive)
 
-		+history-title-letter($sm-letters, 23, 40, 'r', $tourquise)
+		+history-title-letter($sm-letters, 34, 39.02, 40, 'o2', $green)
 
-		+history-title-letter($sm-letters, 20, 40, 'f', $cyan)
+		+history-title-letter($sm-letters, 19.5, 23, 40, 'r', $tourquise)
 
-		+history-title-letter($sm-letters, 23, 40, 'u', $blue)
+		+history-title-letter($sm-letters, 17, 20, 40, 'f', $cyan)
 
-		+history-title-letter($sm-letters, 20, 40, 'l2', $purple)
+		+history-title-letter($sm-letters, 19.5, 23, 40, 'u', $blue)
+
+		+history-title-letter($sm-letters, 17, 20, 40, 'l2', $purple)
 
 
 	+e('bot')
@@ -45,16 +61,19 @@
 		flex-direction: row
 		justify-content: center
 
-		+history-title-letter($sm-letters, 23, 40, 'h')
+		+breakpoint(md)
+			width: 40%
 
-		+history-title-letter($sm-letters, 15, 40, 'i')
+		+history-title-letter($sm-letters, 11, 23, 40, 'h')
 
-		+history-title-letter($sm-letters, 15.61, 40, 's')
+		+history-title-letter($sm-letters, 7.2, 15, 40, 'i')
 
-		+history-title-letter($sm-letters, 23, 40, 't')
+		+history-title-letter($sm-letters, 7.5, 15.61, 40, 's')
 
-		+history-title-letter($sm-letters, 39.02, 40, 'o3')
+		+history-title-letter($sm-letters, 11, 23, 40, 't')
 
-		+history-title-letter($sm-letters, 23, 40, 'r2')
+		+history-title-letter($sm-letters, 18.7, 39.02, 40, 'o3')
 
-		+history-title-letter($sm-letters, 27, 40, 'y')
+		+history-title-letter($sm-letters, 11, 23, 40, 'r2')
+
+		+history-title-letter($sm-letters, 13, 27, 40, 'y')

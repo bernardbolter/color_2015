@@ -19,12 +19,15 @@ var gulp = require('gulp'),
 	connect = require('gulp-connect')
 
 var path = {
-		JADE: 'assets/templates/*.jade',
+		JADE: [
+			'assets/templates/*.jade',
+			'assets/templates/*/*.jade'
+		],
 		SASS: [
-		'assets/sass/style.sass',
-		'assets/sass/**/*.scss',
-		'assets/sass/**/*.sass'
-			],
+			'assets/sass/style.sass',
+			'assets/sass/**/*.scss',
+			'assets/sass/**/*.sass'
+		],
 		SVG: 'assets/svg/*.svg',
 		IMG: [
 			'assets/img/**/*.jpg',
