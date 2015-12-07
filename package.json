@@ -31,6 +31,8 @@
     "reactify": "~1.1.1",
     "watchify": "~3.6.1",
     "react": "~0.14.3",
-    "react-dom": "~0.14.3"
+    "react-dom": "~0.14.3",
+    "picturefill": "~3.0.1",
+    "html5shiv": "~3.7.3"
   }
 }

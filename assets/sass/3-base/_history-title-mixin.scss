@@ -1,0 +1,55 @@
+$svg-container-namespace: '.history-title__svg-container';
+
+// default container value
+#{$svg-container-namespace} {
+  display: inline-block;
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  // default for 1:1 aspect ratio
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+$letter-namespace: '.history-title__letter';
+// default container value
+#{$letter-namespace} {
+  margin:0 3px;
+
+  // default values for svg
+  svg {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+//Pass in width / height without any length unit specifier (so we don't have to do sill strip unit wackiness!), and
+//this will determine appropraite ratio for padding hack and deliver the conainter code.
+@mixin history-title-letter ($responsive-height: 1, $width: 1, $height: 1, $suffix:"", $history-color: #fff) {
+
+  //  figure out width of the letter in percentage
+  $proportion: percentage($width/$height);
+  $proportion-number: ($proportion/100%);
+  $responsive-width: percentage(($proportion-number * $responsive-height) * 0.001); 
+
+  // give width to letter
+  #{$letter-namespace}--#{$suffix} {
+    width: $responsive-width;
+  } 
+
+  // figure out padding of individual letter to maintain responsive proportions along with default proporties
+  $padding-bottom: percentage($height/$width);
+  #{$svg-container-namespace}--#{$suffix} {
+    padding-bottom: $padding-bottom;
+
+    // add individual color to letters
+    svg {
+      fill: #{$history-color}
+    }
+  }
+}

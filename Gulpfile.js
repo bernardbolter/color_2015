@@ -19,17 +19,23 @@ var gulp = require('gulp'),
 	connect = require('gulp-connect')
 
 var path = {
-	  JADE: 'assets/templates/*.jade',
-	  SASS: [
+		JADE: 'assets/templates/*.jade',
+		SASS: [
 		'assets/sass/style.sass',
 		'assets/sass/**/*.scss',
 		'assets/sass/**/*.sass'
 			],
-	  SVG: 'assets/svg/*.svg',
-	  IMG: [
-	  'assets/img/**/*.jpg',
-	  'assets/img/*.png'
-	  ]
+		SVG: 'assets/svg/*.svg',
+		IMG: [
+			'assets/img/**/*.jpg',
+			'assets/img/*.png'
+		],
+		FONTS: [
+			'assets/fonts/*.eot',
+			'assets/fonts/*.svg',
+			'assets/fonts/*.ttf',
+			'assets/fonts/*.woff'
+		]
 };
 
 gulp.task('sass-in', function() {
@@ -78,13 +84,13 @@ gulp.task('jade-in', function() {
 });
 
 gulp.task('svg-in', function() {
-    gulp.src(path.SVG)
-    	.pipe(rename({prefix: 'svg-'}))
-    	.pipe(svgmin())
-    	.pipe(svgstore())
-    	.pipe(rename('defs.svg'))
-    	.pipe(gulp.dest('builds/inbound/svgs'))
-    	.pipe(connect.reload());
+		gulp.src(path.SVG)
+			.pipe(rename({prefix: 'svg-'}))
+			.pipe(svgmin())
+			.pipe(svgstore())
+			.pipe(rename('defs.svg'))
+			.pipe(gulp.dest('builds/inbound/svgs'))
+			.pipe(connect.reload());
 });
 
 gulp.task('clean-in', function() {
@@ -94,15 +100,20 @@ gulp.task('clean-in', function() {
 
 gulp.task('copyImg', function() {
 	gulp.src(path.IMG)
-   .pipe(gulp.dest('builds/inbound/img'));
+	 .pipe(gulp.dest('builds/inbound/img'));
+});
+
+gulp.task('copyFonts', function() {
+	gulp.src(path.FONTS)
+	.pipe(gulp.dest('builds/inbound/fonts'));
 });
 
 gulp.task('connect', function() {
 	connect.server({
-    root: 'builds/inbound',
-    livereload: true,
-    port: 8003
-  });
+		root: 'builds/inbound',
+		livereload: true,
+		port: 8003
+	});
 });
 
 gulp.task('watch', function() {
@@ -112,4 +123,4 @@ gulp.task('watch', function() {
 	gulp.watch(path.SVG), ['svg-in'];
 });
 
-gulp.task('default', ['sass-in', 'js-in', 'jade-in', 'svg-in' , 'connect', 'copyImg', 'watch']);
+gulp.task('default', ['sass-in', 'js-in', 'jade-in', 'svg-in' , 'connect', 'copyImg', 'copyFonts', 'watch']);
