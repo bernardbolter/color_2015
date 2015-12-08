@@ -6,6 +6,9 @@
 	margin: 4% 0 0 0
 	padding: 2% 0
 
+	+breakpoint(sm)
+		margin: 2% 0 0 0
+
 	+breakpoint(md)
 		width: 40%
 		margin: 0 0 0 60%
@@ -20,7 +23,10 @@
 		text-align: center
 
 		+breakpoint(sm)
-			+font-size(30px)
+			+font-size(23px)
+
+		@media (min-width: 600px)
+			+font-size(28px)
 
 		+breakpoint(md)
 			+font-size(25px)

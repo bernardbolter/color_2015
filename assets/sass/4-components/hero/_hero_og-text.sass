@@ -7,12 +7,18 @@
 	margin: 0
 	top: 1%
 
+	+breakpoint(sm)
+		top: 3%
+
 	+breakpoint(md)
+		top: 300px
+		margin: 0 0 0 3%
+		opacity: 0.5
 
 	+e('svg')
 		width: 100%
 		fill: rgba(255,255,255,0.5)
-		height:75px
+		height: 75px
 
 	+e('title')
 		text-align: right
