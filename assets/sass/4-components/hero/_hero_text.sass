@@ -27,17 +27,23 @@
 			padding: 0 0 0 5%
 			text-align: left
 
-	+e('by')
+	a.hero-text__by
 		+font-size(16px)
 		line-height: 1.2
 		font-weight: 200
 		letter-spacing: 0.03em
 		margin: 15px 0 0 0
-		opacity: 0.9
+		opacity: 0.8
 		text-align: center
+		color: #fff
+		text-decoration: none
+		display: block
+
+		&:hover
+			opacity: 1
 
 		+breakpoint(sm)
-			+font-size(20px)
+			+font-size(16px)
 
 		+breakpoint(md)
 			+font-size(18px)

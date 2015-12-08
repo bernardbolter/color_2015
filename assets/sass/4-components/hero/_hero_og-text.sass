@@ -1,25 +1,37 @@
 .hero-og-text
-	position: relative
+	position: absolute
 	display: inline-block
 	left: 0
-	background: rgba(255,255,255,0.4)
-	padding: 5px 10px 5px 20px
+	width: 160px
+	opacity: 0.3
+	margin: 0
+	top: 1%
 
 	+breakpoint(md)
-		padding: 10px 10px 10px 7%
 
-	h4
+	+e('svg')
+		width: 100%
+		fill: rgba(255,255,255,0.5)
+		height:75px
+
+	+e('title')
 		text-align: right
 		font-family: $font-primary
 		+font-size(14px)
 		font-weight: 400
 		color: #222
 		margin: 0
+		position: absolute
+		top: 12px
+		right: 10px
 
-	h5 
+	+e('city') 
 		text-align: right
 		font-family: $font-secondary
 		+font-size(10px)
 		font-weight: 200
 		color: #444
 		margin: 0
+		position: absolute
+		top: 33px
+		right: 10px
