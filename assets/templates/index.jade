@@ -3,7 +3,9 @@ html
 	head
 		title A Colorful History
 		link(rel='stylesheet', href='./css/style.css')
+		link(href='https://fonts.googleapis.com/css?family=Oswald:400,700,300', rel='stylesheet', type='text/css')
 	body
-		include hero/hero.jade
-		.react
+		include hero.jade
+		include paintings.jade
+			.react
 		script(type='text/javascript', src='./js/bundle.js')

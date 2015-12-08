@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var PictureFill = require('picturefill');
 var html5shiv = require('html5shiv');
+var gsap = require('gsap');
 
 var HelloWorld = React.createClass({
 	render: function(){

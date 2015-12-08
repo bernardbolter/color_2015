@@ -1,11 +1,49 @@
-svg.history-title__black-text-back(viewBox='0 0 1 1')
-	use(xlink:href='../svgs/defs.svg#svg-square')
-
 .hero-text
 	width: 100%
 	display: block
+	position: relative
+	z-index: 500
+	margin: 4% 0 0 0
+	padding: 2% 0
+
+	+breakpoint(md)
+		width: 40%
+		margin: 0 0 0 60%
+		padding: 2% 0 0 0
+		background: none
 
 	+e('main')
-		+font-size(20px)
+		+font-size(22px)
+		line-height: 1.2
+		font-weight: 400
+		margin: 0
+		text-align: center
+
+		+breakpoint(sm)
+			+font-size(30px)
+
+		+breakpoint(md)
+			+font-size(25px)
+			padding: 0 0 0 5%
+			text-align: left
+
 	+e('by')
 		+font-size(16px)
+		line-height: 1.2
+		font-weight: 200
+		letter-spacing: 0.03em
+		margin: 15px 0 0 0
+		opacity: 0.9
+		text-align: center
+
+		+breakpoint(sm)
+			+font-size(20px)
+
+		+breakpoint(md)
+			+font-size(18px)
+			padding: 0 0 0 5%
+			text-align: left
+
+		
+
+		

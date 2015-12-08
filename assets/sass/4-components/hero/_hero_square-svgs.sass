@@ -1,0 +1,65 @@
+.hero-right
+	position: absolute
+	top: 0
+	right: 0
+	z-index: 300
+	display: none
+	width: 5%
+
+	+breakpoint(md)
+		display: block
+
+		+e('top')
+			top: 0
+
+			+m('svg')
+				position: absolute
+				width: 100%
+				height: 220px 
+				fill: $blue-dark
+
+		+e('bottom')
+			top: 220px
+			position: absolute
+
+			+m('svg')
+				width: 100%
+				height: 150px
+				fill: $purple
+
+.hero-left
+	position: absolute
+	top: 0
+	left: 0
+	width: 5%
+	display: none
+	z-index: 300
+
+	+breakpoint(md)
+		display: block
+
+		+e('left-svg')
+			width: 100%
+			height: 370px
+			fill: $green
+
+.hero-shade
+	position: absolute
+	top: 0
+	width: 100%
+
+	+e('black-box')
+		fill: rgba(0,0,0,0.2)
+		width: 100%
+		height: 600px
+
+	+breakpoint(md)
+		fill: rgba(0,0,0,0.4)
+		display: block
+		top: 0
+		width: 40%
+		margin: 0 0 0 60%
+		z-index: 200
+
+		+e('black-box')
+			height: 220px

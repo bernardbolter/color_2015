@@ -1,53 +1,23 @@
-.hero_text
+.hero-nav
+	position: relative
 	display: flex
-	flex-direction: column
+	flex-direction: row
 	align-items: center
-	width: 100%
-	font-weight: bold
+	width: 40%
+	margin: 30px 0 0 60%
 
-	.hero_main
-		font-size: 24px
-		background: rgba(0,0,0,0.4)
-		color: rgba(255,255,255,0.6)
-		padding: 3px 20px
-		margin: 30px 0 0 0
-
-	.hero_by
-		margin: 10px 0 30px
-
-	.nav
-		display: flex
-		flex-direction: row
-		justify-content: center
+	+e('navigation')
 		list-style: none
-		padding: 0
-		margin: 0
+		text-align: left
+		padding: 5px 5px 35px
+		background: rgba(255,255,255,0.5)
 
 		li
-			display: flex
-			flex-direction: column
-			align-items: center
 			margin: 0 10px
 			text-decoration: none
-			font-family: 'Open Sans', snas-serif
-			color: black
-			font-size: 12px
+			font-family: $font-primary
+			font-weight: 400
+			color: #333
+			+font-size(16px)
 			cursor: pointer
-
-			.nav_text
-				background: rgba(255,255,255,0.5)
-				padding: 1px 7px
-				margin: 5px 0 0
-
-			svg
-				width: 40px
-				height: 40px
-				position: relative
-				top: 0
-				left: 0
-
-			.arrow_down
-				transform: rotate(270deg)
-
-			.arrow_right
-				transform: rotate(180deg)
+			text-transform: uppercase
