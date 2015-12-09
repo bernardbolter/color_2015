@@ -1,4 +1,4 @@
-.paintings-loop
+.paintings-top
 	width: 100%
 	display: flex
 	flex-direction: row
@@ -13,7 +13,18 @@
 
 		svg
 			width: 100%
-			fill: $green-light
+			fill: $yellow-light
+
+	+e('angle')
+		width: 100%
+
+		+breakpoint(md)
+			width: 90%
+
+		svg
+			width: 101%
+			overflow: hidden
+			fill: $grey-one
 
 	+e('right')
 		display: none
