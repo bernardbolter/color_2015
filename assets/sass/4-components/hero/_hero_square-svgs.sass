@@ -22,11 +22,36 @@
 			top: 220px
 			position: absolute
 
+			+breakpoint(lg)
+				top: 245px
+
 			+m('svg')
 				width: 100%
 				margin: -4px 0 0 0
 				height: 184px
 				fill: $purple
+
+	+breakpoint(lg)
+		+e('top')
+			+m('svg')
+				height: 245px
+
+		+e('bottom')
+			top: 245px
+			
+			+m('svg')
+				height: 210px
+
+	+breakpoint(xl)
+		+e('top')
+			+m('svg')
+				height: 270px
+
+		+e('bottom')
+			top: 270px
+
+			+m('svg')
+			 height: 235px
 
 .hero-left
 	position: absolute
@@ -44,8 +69,13 @@
 			height: 400px
 			fill: $green
 
-		+breakpoint(lg)
-			height: 400px
+	+breakpoint(lg)
+		+e('left-svg')
+			height: 450px
+
+	+breakpoint(xl)
+		+e('left-svg')
+			height: 500px
 
 .hero-shade
 	position: absolute
@@ -65,3 +95,9 @@
 			margin: 0 0 0 60%
 			z-index: 200
 			height: 260px
+
+		+breakpoint(lg)
+			height: 290px
+
+		+breakpoint(xl)
+		 height: 320px
