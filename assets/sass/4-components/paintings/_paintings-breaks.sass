@@ -1,0 +1,19 @@
+.paintings-loop-container
+	display: flex
+	flex-direction: column
+	width: 100%
+
+	+breakpoint(md)
+		flex-direction: row
+		width: 90%
+
+
+.paintings-info-container
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+
+	+breakpoint(md)
+		width: 40%
+		order: 2
+		flex-direction: column

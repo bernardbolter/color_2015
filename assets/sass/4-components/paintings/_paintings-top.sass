@@ -2,6 +2,7 @@
 	width: 100%
 	display: flex
 	flex-direction: row
+	margin: 0 0 -7px
 
 	+e('left')
 		display: none
@@ -10,10 +11,13 @@
 		+breakpoint(md)
 			display: block
 			width: 5%
+			position: relative
 
 		svg
 			width: 100%
 			fill: $yellow-light
+			position: absolute
+			height: 100%
 
 	+e('angle')
 		width: 100%
@@ -22,7 +26,7 @@
 			width: 90%
 
 		svg
-			width: 101%
+			width: 100.5%
 			overflow: hidden
 			fill: $grey-one
 
@@ -33,7 +37,10 @@
 		+breakpoint(md)
 			display: block
 			width: 5%
+			position: relative
 		
 		svg
 			width: 100%
 			fill: $tourquise-light
+			position: absolute
+			height: 100%

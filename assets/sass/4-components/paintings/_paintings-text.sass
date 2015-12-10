@@ -1,1 +1,30 @@
 .paintings-text
+	margin: 0 0 0 5%
+	justify-content: flex-end
+
+
+	+e('title')
+		+font-size(24px)
+		color: $text-dark
+
+	+e('city')
+		+font-size(14px)
+		color: $text-medium
+		text-transform: uppercase
+		line-height: 1.5
+
+	+e('info')
+		+font-size(14px)
+		color: $text-medium
+		line-height: 1.5
+
+	+e('story')
+		display: none
+
+		+breakpoint(md)
+			display: block
+			font-family: $font-secondary
+			+font-size(12px)
+			margin: 20px 30px
+			text-align: justify
+			color: $text-light

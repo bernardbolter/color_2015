@@ -1,13 +1,12 @@
 section.paintings-loop
 	.paintings-loop__left
-		svg.icon(viewBox='0 0 50 700' preserveAspectRatio='none')
+		svg.paintings-loop__left--svg(viewBox='0 0 50 700' preserveAspectRatio='none')
 			use(xlink:href='../svgs/defs.svg#svg-side-one')
 
-	.paintings-loop__container
-		include paintings-image.jade
+	.paintings-loop-container
 		include paintings-text.jade
-		include paintings-links.jade
+		include paintings-image.jade
 
 	.paintings-loop__right
-		svg.icon(viewBox='0 0 50 700' preserveAspectRatio='none')
-			use(xlink:href='../svgs/defs.svg#svg-side-one')
+		svg.paintings-loop__right--svg(viewBox='0 0 50 700' preserveAspectRatio='none')
+			use(xlink:href='../svgs/defs.svg#svg-side-two')

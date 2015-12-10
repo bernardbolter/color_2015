@@ -7,7 +7,7 @@ var gsap = require('gsap');
 var HelloWorld = React.createClass({
 	render: function(){
 		return <div>
-		Hello World!
+		<p className='paintings__title'>Cliff House 1902</p>
 		</div>
 	}
 });
