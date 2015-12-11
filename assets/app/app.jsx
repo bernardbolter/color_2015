@@ -9,32 +9,30 @@ var lazysizes = require('lazysizes');
 
 var rootUrl = "https://bolter-art.firebaseio.com/";
 
-var PaintingLeft = require('./painting-left');
-var PaintingRight = require('./painting-right');
-var PaintingInfo = require('./painting-info');
-var PaintingImage = require('./painting-image');
+var PaintingView = require('./painting-view');
 
 var Paintings = React.createClass({
 	mixins: [ ReactFire ],
-	componentWillMount: function() {
-		this.bindAsObject(new Firebase(rootUrl + 'paintings/'), 'paintings');	      
+	getInitialState: function() {
+	    return {
+	        paintings : []
+	    }
 	},
-	render: function(){
+	componentWillMount: function() {
+		this.bindAsArray(new Firebase(rootUrl + 'paintings/'), 'paintings')      
+	},
+	render: function() {
 		console.log(this.state);
-		return <section className='painting-loop'>
-
-			<PaintingLeft />
-
-			<div className='painting-container'>
-
-				<PaintingInfo />
-				<PaintingImage />
-
-			</div>
-
-			<PaintingRight />
-			
-		</section>
+		return (
+				<section className='painting-loop'>
+					{this.state.paintings.map(function(painting, i) {
+							return <PaintingView key={i} reactKey={i} {...painting} />
+					})}
+				</section>
+			);
+	},
+	onChange: function(event, paintings) {
+		this.setState({paintings: paintings})
 	}
 });
 
