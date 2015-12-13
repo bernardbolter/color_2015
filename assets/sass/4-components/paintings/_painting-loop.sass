@@ -4,7 +4,6 @@
 	flex-direction: column
 	position: relative
 	z-index: 100
-	background: $grey-one
 
 	+e('background')
 		width: 100%
@@ -13,7 +12,6 @@
 
 	+e('left')
 		display: none
-		background: $grey-one
 
 		+breakpoint(md)
 			display: block
@@ -21,15 +19,9 @@
 
 		+m('svg')
 			width: 100%
-			fill: $red-light
-
-		svg
-			width: 100%
-			fill: $green-light
 
 	+e('right')
 		display: none
-		background: $grey-one
 
 		+breakpoint(md)
 			display: block
@@ -37,4 +29,3 @@
 		
 		+m('svg')
 			width: 100%
-			fill: $red-light

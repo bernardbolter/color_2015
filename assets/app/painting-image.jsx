@@ -4,7 +4,6 @@ var LazySizes = require('lazysizes');
 
 module.exports = React.createClass({
 	render: function() {
-		console.log(this.props.reactKey)
 
 		return <section className='painting-image'>
 							{this.paintingImageRender()}

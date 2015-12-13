@@ -40,6 +40,8 @@
     "reactfire": "~0.4.0",
     "firebase": "~2.3.2",
     "lodash": "~3.10.1",
-    "reflux": "~0.3.0"
+    "reflux": "~0.3.0",
+    "radium": "~0.15.3",
+    "classnames": "~2.2.1"
   }
 }

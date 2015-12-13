@@ -2,7 +2,7 @@ var React = require('react');
 
 module.exports = React.createClass({
 	render: function() {
-		return 	<div className='painting-info-container'>
+		return 	<div className='painting-info-container' style={this.leftRight()}>
 
 							<section className='painting-text'>
 								<h2 className='painting-text__title'>{this.props.painting[key].title} . 1902</h2>
@@ -12,5 +12,16 @@ module.exports = React.createClass({
 							</section>
 
 						</div>
+		},
+		leftRight: function() {
+			var count = this.props.reactKey + 1;
+			if (count%2 === 0) {
+				leftRight = { order: 2};
+			} else {
+				leftRight = { order: 1 };
+			}
+			console.log(leftRight);
+
+		return leftRight
 		}
 });

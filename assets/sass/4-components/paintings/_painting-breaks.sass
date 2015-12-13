@@ -8,7 +8,7 @@
 		width: 90%
 
 
-.painting-info-container
+.painting-info-container__left
 	display: flex
 	flex-direction: row
 	justify-content: space-between
@@ -16,5 +16,16 @@
 	+breakpoint(md)
 		width: 40%
 		order: 2
+		flex-direction: column
+		justify-content: center
+
+.painting-info-container__right
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+
+	+breakpoint(md)
+		width: 40%
+		order: 1
 		flex-direction: column
 		justify-content: center
