@@ -20,7 +20,7 @@ module.exports = React.createClass({
 	},
 	fillHeroTopRight: function() {
 		var fillHeroTopRightColors = [
-			'#51251e', '#68492a', '#61532d', '#444f3c', '#335233', '#1DA097', '#304654', '#303954', '#e4e3e2'
+			'#51251e', '#68492a', '#61532d', '#444f3c', '#335233', '#1DA097', '#304654', '#303954', '#674D8C'
 		];
 		var randomHeroTopRightColor = _.shuffle(fillHeroTopRightColors)[0];
 		var fillHeroTopRightStyle = {
