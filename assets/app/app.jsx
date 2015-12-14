@@ -7,6 +7,7 @@ var html5shiv = require('html5shiv');
 var gsap = require('gsap');
 var lazysizes = require('lazysizes');
 var ReactPicture = require('react-picture');
+var _ = require('lodash');
 
 var rootUrl = "https://bolter-art.firebaseio.com/";
 
@@ -32,14 +33,13 @@ var Hero = React.createClass({
 		this.bindAsArray(new Firebase(rootUrl + 'ogphotos/'), 'ogphotos')
 	},
 	render: function(){
+		var randomBackground = _.sample(this.state.ogphotos);
+
 		return (
 				<section className='hero'>
 					<HeroLeft />
 					<section className ='hero-image_wrap'>
-						{this.state.ogphotos.map(function(ogphotos, i){
-							return <HeroImage key={i} reactKey={i} {...ogphotos} />
-							console.log(this.state.ogphotos);
-						})}
+							<HeroImage {...randomBackground}/>
 					</section>
 					<HeroTitle />
 					<HeroShade />

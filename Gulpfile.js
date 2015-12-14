@@ -23,11 +23,13 @@ var path = {
 			'assets/templates/*.jade',
 			'assets/templates/*/*.jade'
 		],
+		HTML: 'assets/templates/index.html',
 		SASS: [
 			'assets/sass/style.sass',
 			'assets/sass/**/*.scss',
 			'assets/sass/**/*.sass'
 		],
+		FAVICON: 'assets/img/favicon.ico',
 		SVG: 'assets/svg/*.svg',
 		IMG: [
 			'assets/img/**/*.jpg',
@@ -106,6 +108,16 @@ gulp.task('copyImg', function() {
 	 .pipe(gulp.dest('builds/inbound/img'));
 });
 
+gulp.task('copyHTML', function() {
+	gulp.src(path.HTML)
+		.pipe(gulp.dest('builds/inbound'));
+});
+
+gulp.task('moveFavicon', function() {
+	gulp.src(path.FAVICON)
+		.pipe(gulp.dest('builds/inbound'));
+});
+
 gulp.task('copyFonts', function() {
 	gulp.src(path.FONTS)
 	.pipe(gulp.dest('builds/inbound/fonts'));
@@ -122,8 +134,7 @@ gulp.task('connect', function() {
 gulp.task('watch', function() {
 	gulp.watch(path.SASS, ['sass-in']);
 	gulp.watch(path.JS, ['js-in']);
-	gulp.watch(path.JADE, ['jade-in']);
 	gulp.watch(path.SVG), ['svg-in'];
 });
 
-gulp.task('default', ['sass-in', 'js-in', 'jade-in', 'svg-in' , 'connect', 'copyImg', 'copyFonts', 'watch']);
+gulp.task('default', ['sass-in', 'js-in', 'copyHTML', 'svg-in' , 'connect', 'copyImg', 'copyFonts', 'watch']);
