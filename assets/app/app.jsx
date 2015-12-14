@@ -6,10 +6,53 @@ var PictureFill = require('picturefill');
 var html5shiv = require('html5shiv');
 var gsap = require('gsap');
 var lazysizes = require('lazysizes');
+var ReactPicture = require('react-picture');
 
 var rootUrl = "https://bolter-art.firebaseio.com/";
 
-var PaintingView = require('./painting-view');
+var PaintingView = require('./paintings/painting-view');
+var PaintingsTop = require('./paintings/paintings-top');
+
+var HeroLeft = require('./hero/hero-left');
+var HeroImage = require('./hero/hero-image');
+var HeroTitle = require('./hero/hero-title');
+var HeroShade = require('./hero/hero-shade');
+var HeroText = require('./hero/hero-text');
+var HeroNav = require('./hero/hero-nav');
+var HeroRight = require('./hero/hero-right');
+
+var Hero = React.createClass({
+	mixins: [ReactFire],
+	getInitialState: function() {
+		return {
+			ogphotos : []
+		}
+	},
+	componentWillMount: function() {
+		this.bindAsArray(new Firebase(rootUrl + 'ogphotos/'), 'ogphotos')
+	},
+	render: function(){
+		return (
+				<section className='hero'>
+					<HeroLeft />
+					<section className ='hero-image_wrap'>
+						{this.state.ogphotos.map(function(ogphotos, i){
+							return <HeroImage key={i} reactKey={i} {...ogphotos} />
+							console.log(this.state.ogphotos);
+						})}
+					</section>
+					<HeroTitle />
+					<HeroShade />
+					<HeroText />
+					<HeroNav />
+					<HeroRight />
+				</section>
+			);
+	},
+	onChange: function(event, ogphotos) {
+		this.setState({ogphotos: ogphotos})
+	}
+});
 
 var Paintings = React.createClass({
 	mixins: [ ReactFire ],
@@ -22,12 +65,14 @@ var Paintings = React.createClass({
 		this.bindAsArray(new Firebase(rootUrl + 'paintings/'), 'paintings')      
 	},
 	render: function() {
-		console.log(this.state);
 		return (
-				<section className='painting-loop'>
-					{this.state.paintings.map(function(painting, i) {
-							return <PaintingView key={i} reactKey={i} {...painting} />
-					})}
+				<section className='paintings'>
+					<PaintingsTop />
+					<section className='painting-loop'>
+						{this.state.paintings.map(function(painting, i) {
+								return <PaintingView key={i} reactKey={i} {...painting} />
+						})}
+					</section>
 				</section>
 			);
 	},
@@ -36,6 +81,10 @@ var Paintings = React.createClass({
 	}
 });
 
-var element = React.createElement(Paintings, {});
+var heroWrap = React.createElement(Hero, {});
 
-ReactDOM.render(element, document.querySelector('#paintings-loop'));
+ReactDOM.render(heroWrap, document.querySelector('#hero'));
+
+var paintingsLoop = React.createElement(Paintings, {});
+
+ReactDOM.render(paintingsLoop, document.querySelector('#paintings'));

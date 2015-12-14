@@ -1,14 +1,13 @@
 var React = require('react');
 var PaintingLeft = require('./painting-left');
 var PaintingRight = require('./painting-right');
-var PaintingInfo = require('./painting-info');
 var PaintingImage = require('./painting-image');
 
 module.exports = React.createClass({
 	render: function() {
 
 		return <div className='painting-loop__background' style={this.greyBack()}>
-						<PaintingLeft />
+						<PaintingLeft {...this.props} />
 
 							<div className='painting-container'>
 
@@ -26,7 +25,7 @@ module.exports = React.createClass({
 
 							</div>
 
-						<PaintingRight />
+						<PaintingRight {...this.props} />
 					</div>
 	},
 	greyBack: function() {

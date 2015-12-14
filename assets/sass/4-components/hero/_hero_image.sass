@@ -1,8 +1,23 @@
 .hero__image
-	picture
-		img
-			width: 100%
-			position: absolute
-			top: 0
-			left: 0
-			z-index: -1
+	width: 100%
+	height: 510px
+	position: absolute
+	background-size: cover
+	background-repeat: no-repeat
+	background-image: url(../img/og/cliff-house-1902_og_xs.jpg)
+
+	+breakpoint(sm)
+		height: 670px
+		background-image: url(../img/og/cliff-house-1902_og_sm.jpg)
+
+	+breakpoint(md)
+		height: 520px
+		background-image: url(../img/og/cliff-house-1902_og_md.jpg)
+
+	+breakpoint(lg)
+		height: 610px
+		background-image: url(../img/og/cliff-house-1902_og_lg.jpg)
+
+	+breakpoint(xl)
+		height: 700px
+		background-image: url(../img/og/cliff-house-1902_og_lg.jpg)

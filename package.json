@@ -42,6 +42,7 @@
     "lodash": "~3.10.1",
     "reflux": "~0.3.0",
     "radium": "~0.15.3",
-    "classnames": "~2.2.1"
+    "classnames": "~2.2.1",
+    "react-picture": "0.0.4"
   }
 }

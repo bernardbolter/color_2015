@@ -6,8 +6,8 @@ module.exports = React.createClass({
 	render: function() {
 
 	return	<div className='painting-loop__left'>
-						<svg style={this.fillLeftStyle()} className='painting-loop__left--svg' viewBox='0 0 50 600' preserveAspectRatio='none'>
-							<use xlinkHref='../svgs/defs.svg#svg-side-one' />
+						<svg style={this.fillLeftStyle()} className='painting-loop__left--svg icon' viewBox='0 0 50 600' preserveAspectRatio='none'>
+							<use xlinkHref={this.pickLeftSvg()} />
 						</svg>
 					</div>
 	},
@@ -21,5 +21,15 @@ module.exports = React.createClass({
 		}; 
 
 		return fillLeftStyle
+	},
+	pickLeftSvg: function() {
+		var countLeft = this.props.reactKey + 1;
+		if (countLeft%2 === 0) {
+			pickLeft = '../svgs/defs.svg#svg-side-three';
+		} else {
+			pickLeft = '../svgs/defs.svg#svg-side-one';
+		}
+
+		return pickLeft
 	}
 });
