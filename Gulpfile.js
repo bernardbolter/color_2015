@@ -191,6 +191,6 @@ gulp.task('test-outbound', function() {
 	});
 });
 
-gulp.task('default', ['sass-in', 'js-in', 'copyHTML', 'svg-in' , 'connect', 'copyImg', 'moveFavicon', 'watch']);
+gulp.task('default', ['sass-in', 'js-in', 'copyHTML', 'svg-in' , 'connect', 'watch']);
 
 gulp.task('outbound', ['clean-out', 'js-out', 'sass-out', 'svg-out', 'copyImg-out', 'copyHTML-out', 'moveFavicon-out']); 

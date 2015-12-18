@@ -11,6 +11,7 @@ var rootUrl = "https://bolter-art.firebaseio.com/";
 
 var PaintingView = require('./paintings/painting-view');
 var PaintingsTop = require('./paintings/paintings-top');
+var PaintingsFooter = require('./paintings/paintings-footer');
 
 var HeroLeft = require('./hero/hero-left');
 var HeroImage = require('./hero/hero-image');
@@ -76,6 +77,7 @@ var Paintings = React.createClass({
 								return <PaintingView key={i} reactKey={i} {...painting} />
 						})}
 					</section>
+					<PaintingsFooter />
 				</section>
 			);
 	},
