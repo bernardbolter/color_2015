@@ -4,9 +4,7 @@ var Firebase = require('firebase');
 var ReactDOM = require('react-dom');
 var PictureFill = require('picturefill');
 var html5shiv = require('html5shiv');
-var gsap = require('gsap');
 var lazysizes = require('lazysizes');
-var ReactPicture = require('react-picture');
 var _ = require('lodash');
 
 var rootUrl = "https://bolter-art.firebaseio.com/";
@@ -33,7 +31,9 @@ var Hero = React.createClass({
 		this.bindAsArray(new Firebase(rootUrl + 'ogphotos/'), 'ogphotos')
 	},
 	render: function(){
+		console.log(this.state.ogphotos);
 		var randomBackground = _.sample(this.state.ogphotos);
+		console.log(randomBackground);
 
 		return (
 				<section className='hero'>
@@ -61,15 +61,18 @@ var Paintings = React.createClass({
 	        paintings : []
 	    }
 	},
+	
 	componentWillMount: function() {
-		this.bindAsArray(new Firebase(rootUrl + 'paintings/'), 'paintings')      
+		this.bindAsArray(new Firebase(rootUrl + 'paintings/'), 'paintings');
 	},
 	render: function() {
+		var paintingsShuffled = _.shuffle(this.state.paintings);
+
 		return (
 				<section className='paintings'>
 					<PaintingsTop />
 					<section className='painting-loop'>
-						{this.state.paintings.map(function(painting, i) {
+						{paintingsShuffled.map(function(painting, i) {
 								return <PaintingView key={i} reactKey={i} {...painting} />
 						})}
 					</section>

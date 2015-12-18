@@ -15,7 +15,7 @@ module.exports = React.createClass({
 
 									<section className={this.displayRight()}>
 										<h2 className='painting-text__title'>{this.props.title} . {this.props.photo_year}</h2>
-										<h3 className='painting-text__city'>San Francisco</h3>
+										<h3 className='painting-text__city'>{this.props.city}</h3>
 										<h4 className='painting-text__info'>{this.props.dimensions} | {this.props.created}</h4>
 										<p className={'painting-text__story ' + this.floatRight()}>{this.props.story}</p>
 									</section>

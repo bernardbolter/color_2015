@@ -5,11 +5,14 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
 	sourcemaps = require('gulp-sourcemaps'),
 	browserify = require('browserify'),
 	watchify = require('watchify'),
 	reactify = require('reactify'),
+	streamify = require('gulp-streamify'),
 	source = require('vinyl-source-stream'),
+	rename = require('gulp-rename'),
 	jade = require('gulp-jade'),
 	svgstore = require('gulp-svgstore'),
 	svgmin = require('gulp-svgmin'),
@@ -54,6 +57,14 @@ gulp.task('sass-in', function() {
 		.pipe(connect.reload());
 });
 
+gulp.task('sass-out', function() {
+	gulp.src(path.SASS)
+		.pipe(sass({outputStyle: 'compressed'}))
+		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie8', 'ie9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(concat('style.css'))
+		.pipe(gulp.dest('builds/outbound/css'));
+});
+
 gulp.task('js-in', function() {
 	var bundler = watchify(browserify({
 		entries: ['./assets/app/app.jsx'],
@@ -79,13 +90,23 @@ gulp.task('js-in', function() {
 	bundler.on('update', build)
 });
 
-gulp.task('jade-in', function() {
-	gulp.src('assets/templates/index.jade')
-		.pipe(jade({
-			pretty: true
-			}))
-		.pipe(gulp.dest('./builds/inbound'))
-		.pipe(connect.reload());
+gulp.task('js-out', function() {
+	var bundleStream = watchify(browserify({
+		entries: ['./assets/app/app.jsx'],
+		transform: [reactify],
+		extensions: ['.jsx'],
+		debug: true,
+		cache: {},
+		packageCache: {},
+		fullPaths: true
+	})).bundle()
+
+	bundleStream
+		.pipe(source('./assets/app/app.jsx'))
+		.pipe(streamify(uglify()))
+		.pipe(rename('bundle.js'))
+		.pipe(gulp.dest('./builds/outbound/js'))
+
 });
 
 gulp.task('svg-in', function() {
@@ -98,8 +119,23 @@ gulp.task('svg-in', function() {
 			.pipe(connect.reload());
 });
 
+gulp.task('svg-out', function() {
+		gulp.src(path.SVG)
+			.pipe(rename({prefix: 'svg-'}))
+			.pipe(svgmin())
+			.pipe(svgstore())
+			.pipe(rename('defs.svg'))
+			.pipe(gulp.dest('builds/outbound/svgs'))
+			.pipe(connect.reload());
+});
+
 gulp.task('clean-in', function() {
 	return gulp.src('builds/inbound', {read: false})
+		.pipe(clean());
+});
+
+gulp.task('clean-out', function() {
+	return gulp.src('builds/outbound', {read: false})
 		.pipe(clean());
 });
 
@@ -108,9 +144,19 @@ gulp.task('copyImg', function() {
 	 .pipe(gulp.dest('builds/inbound/img'));
 });
 
+gulp.task('copyImg-out', function() {
+	gulp.src(path.IMG)
+	 .pipe(gulp.dest('builds/outbound/img'));
+});
+
 gulp.task('copyHTML', function() {
 	gulp.src(path.HTML)
 		.pipe(gulp.dest('builds/inbound'));
+});
+
+gulp.task('copyHTML-out', function() {
+	gulp.src(path.HTML)
+		.pipe(gulp.dest('builds/outbound'));
 });
 
 gulp.task('moveFavicon', function() {
@@ -118,9 +164,9 @@ gulp.task('moveFavicon', function() {
 		.pipe(gulp.dest('builds/inbound'));
 });
 
-gulp.task('copyFonts', function() {
-	gulp.src(path.FONTS)
-	.pipe(gulp.dest('builds/inbound/fonts'));
+gulp.task('moveFavicon-out', function() {
+	gulp.src(path.FAVICON)
+		.pipe(gulp.dest('builds/outbound'));
 });
 
 gulp.task('connect', function() {
@@ -137,4 +183,14 @@ gulp.task('watch', function() {
 	gulp.watch(path.SVG), ['svg-in'];
 });
 
-gulp.task('default', ['sass-in', 'js-in', 'copyHTML', 'svg-in' , 'connect', 'copyImg', 'copyFonts', 'watch']);
+gulp.task('test-outbound', function() {
+	connect.server({
+		root: 'builds/outbound',
+		livereload: true,
+		port: 8004
+	});
+});
+
+gulp.task('default', ['sass-in', 'js-in', 'copyHTML', 'svg-in' , 'connect', 'copyImg', 'moveFavicon', 'watch']);
+
+gulp.task('outbound', ['clean-out', 'js-out', 'sass-out', 'svg-out', 'copyImg-out', 'copyHTML-out', 'moveFavicon-out']); 
