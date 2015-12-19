@@ -62,7 +62,6 @@ var Paintings = React.createClass({
 	        paintings : []
 	    }
 	},
-	
 	componentWillMount: function() {
 		this.bindAsArray(new Firebase(rootUrl + 'paintings/'), 'paintings');
 	},

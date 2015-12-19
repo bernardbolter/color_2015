@@ -13,6 +13,7 @@ module.exports = React.createClass({
 								<svg className='icon' viewBox='0 0 1000 167' preserveAspectRatio='none'>
 									<use xlinkHref='../svgs/defs.svg#svg-angle' />
 								</svg>
+								<p className='paintings-top__angle--heading'>Paintings</p>
 							</div>
 							<div className='paintings-top__right'>
 								<svg style={this.fillTopRight()} className='icon' viewBox='0 0 1 1' preserveAspectRatio='none'>

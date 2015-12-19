@@ -30,6 +30,25 @@
 			right: -40%
 			padding: 5%
 
+	+e('link')
+		width: 40px
+		height: 40px
+		float: left
+		margin: 20px 10px 0 0
+		opacity: 0.9
+
+		+breakpoint(md)
+			opacity: 0.5
+
+			&:hover
+				opacity: 0.9
+
+		+m('pinterest')
+			fill: $pinterest-color
+
+		+m('etsy')
+			fill: $etsy-color
+
 	.visible
 		right: 0
 
